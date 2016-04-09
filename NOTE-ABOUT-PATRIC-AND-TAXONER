@@ -9,5 +9,7 @@ To get *exactly* which strain each alignment goes to you have to go back to the 
 #unique_id can be grepped from PATRIC_final_genome_index.txt to give the PATRIC accession number 'accn|' to get the actual feature you have to go to the genome browser for the species and then
 #enter in the start point (ex: 192292 in this instance)
 
-In a way, this doesn't matter, the contigs will be cat'd along with any spurious genomes, after alignment of each sample we can just filter out contigs with low coverage... we won't be losing any information
+***Path to PATRIC_final_genome_index.txt can be found in config.sh (or else!!!)
 
+In a way, this doesn't matter, the contigs will be cat'd along with any spurious genomes, after alignment of each sample we can just filter out contigs with low coverage... we won't be losing any information
+*but this might be important later in case of annotation
