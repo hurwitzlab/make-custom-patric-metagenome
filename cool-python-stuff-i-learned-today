@@ -1,0 +1,87 @@
+from plumbum import local
+help(plumbum)
+help('plumbum')
+version('plumbum')
+import plumbum
+plumbum.version
+from plumbum import local
+find=local['find']
+find
+find('./ -maxdepth 1')
+import os
+import pprint
+import subprocess
+command=['find','./','-maxdepth 1']
+proc = subprocess.Popen(command, stdout = subprocess.PIPE)
+command=['find','.','-maxdepth 1']
+proc = subprocess.Popen(command, stdout = subprocess.PIPE)
+command=['bash','-c','find ./ -maxdepth 1']
+print command
+proc = subprocess.Popen(command, stdout = subprocess.PIPE)
+print proc
+proc.communicate
+proc.communicate()
+print proc.stdin
+print proc.stdout
+print proc.stdout()
+print proc.stderr
+proc.communicate()
+proc = subprocess.Popen(command, stdout = subprocess.PIPE)
+proc.communicate()
+command=['bash','-c','find ./ -maxdepth 1 -iname \*tester\*']
+proc = subprocess.Popen(command, stdout = subprocess.PIPE)
+proc.communicate()
+command=['bash','-c','find ./ -maxdepth 1 -iname \*tester\*']
+proc = subprocess.Popen(command, stdout = subprocess.PIPE)
+result=proc.communicate()
+print result
+result[1]
+result[0]
+length(result)
+len(result)
+result.count
+result.count()
+result.count(0)
+result.count(1)
+result.count(2)
+result.count(None)
+result.index(1)
+result.index(0)
+result.index
+result.index()
+result.index(none)
+result.index(None)
+pprint(result)
+pprint.pprint result
+pprint.pprint(result)
+print(result)
+pprint.pprint(result[0])
+history
+command=['bash','-c','find ./ -maxdepth 1 -iname \*tester\*']
+proc = subprocess.Popen(command, stdout = subprocess.PIPE)
+result=proc.stdout
+proc.communicate()
+print(result)
+from plumbum import local
+local.cwd
+local.cwd.chdir('make-custom-patric-metagenome/')
+ls()
+ls
+command = ['bash', '-c', 'source config.sh && env']
+proc = subprocess.Popen(command, stdout = subprocess.PIPE)
+for line in proc.stdout:
+    (key, _, value) = line.partition("=")
+    os.environ[key] = value
+proc.communicate()
+pprint.pprint(dict(os.environ))
+print(os.environ.fromkeys('TERM'))
+print(os.environ.get('TERM'))
+print(os.environ.get('FASTA_DIR'))
+ls
+ls
+ls=local['ls']
+ls()
+ls
+local.cwd
+history
+find('./ -maxdepth 1'.split())
