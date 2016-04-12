@@ -1,10 +1,24 @@
 #!/usr/bin/env python
 
+#PBS -W group_list=bhurwitz
+#PBS -q standard
+#PBS -l jobtype=cluster_only
+#PBS -l select=1:ncpus=6:mem=11gb
+#PBS -l pvmem=22gb
+#PBS -l place=pack:shared
+#PBS -l walltime=24:00:00
+#PBS -l cput=24:00:00
+#PBS -M scottdaniel@email.arizona.edu
+#PBS -m bea
+
 import os
 import pprint
 import subprocess
 from plumbum import local
 from collections import defaultdict
+
+#change directory to where script is launched (stupid PBS!!!)
+local.cwd.chdir(os.environ.get('PBS_O_WORKDIR'))
 
 #function to import variable from config.sh or other sourcefile
 def import_config(sourcefile='config.sh'):
@@ -17,7 +31,9 @@ def import_config(sourcefile='config.sh'):
 
 #call the function
 import_config()
-pprint.pprint(dict(os.environ))
+
+#for testing
+#pprint.pprint(dict(os.environ))
 
 #dictionary to store patric ids mapped to ncbi taxa ids (needed)
 patric_to_taxa={}
