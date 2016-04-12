@@ -6,14 +6,23 @@ import subprocess
 from plumbum import local
 from collections import defaultdict
 
-#function to import variable from config.sh
-def import_config()
-#TODO
+#function to import variable from config.sh or other sourcefile
+def import_config(sourcefile='config.sh'):
+    command = ['bash', '-c', 'source ' + sourcefile + ' && env']
+    proc = subprocess.Popen(command, stdout = subprocess.PIPE)
+    for line in proc.stdout:
+        (key, _, value) = line.partition("=")
+        os.environ[key] = value.rstrip('\n')
+    proc.communicate()
+
+#call the function
+import_config()
+pprint.pprint(dict(os.environ))
 
 #dictionary to store patric ids mapped to ncbi taxa ids (needed)
 patric_to_taxa={}
 
-#dictionary to store ids to name (may not use)
+#dictionary to store ids to name (optionally use this)
 patric_to_name={}
 
 #file with list of ids
@@ -36,4 +45,34 @@ for line in infile:
         patric_to_taxa.update({patricid:taxid})
         patric_to_name.update({patricid:name})
 
+#change dir to where genomes are
+local.cwd.chdir(os.environ.get('PATRIC_DIR'))
 
+#import find command using plumbum
+find=local['find']
+
+for patricid in patric_to_taxa:
+    
+    #find genome
+    #NOTE: this will break if there are multiple matches
+    print('Searching for '+patricid+'.fna')
+    genome_name=find('./','-iname','*'+patricid+'*')
+    genome_name=genome_name.rstrip('\n')
+
+    #read into temporary file
+    try:
+        temp_genome = open(genome_name,'r')
+    except IOError:
+        print(patricid+'.fna not found')
+        continue
+
+    #write each line of file to the outfile
+    for line in temp_genome:
+        outfile.write(line)
+
+    #close file
+    temp_genome.close
+
+#being a good memory citizen
+infile.close()
+outfile.close()
