@@ -1,0 +1,2 @@
+#this seems to work just for cat'ing all the files
+xargs -a just_patric_ids -d '\n' cat > contigs.fa
