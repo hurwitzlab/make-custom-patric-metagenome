@@ -18,7 +18,7 @@ from plumbum import local
 from collections import defaultdict
 
 #change directory to where script is launched (stupid PBS!!!)
-local.cwd.chdir(os.environ.get('PBS_O_WORKDIR'))
+#local.cwd.chdir(os.environ.get('PBS_O_WORKDIR'))
 
 #function to import variable from config.sh or other sourcefile
 def import_config(sourcefile='config.sh'):
@@ -42,8 +42,9 @@ patric_to_taxa={}
 patric_to_name={}
 
 #file with list of ids
-infile = open('tax_ids_to_lineage_ids.txt','r')
+#infile = open('tax_ids_to_lineage_ids.txt','r')
 
+infile = open('prototype_tax_ids.txt','r')
 #final outfile
 outfile = open('./data/patric_contigs.fa','w')
 
