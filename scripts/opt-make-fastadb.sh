@@ -31,19 +31,23 @@ fi
 
 export FILES_TO_PROCESS="$PRJ_DIR/makedb-files-to-process"
 
-while read FASTA; do
+#remove following line after first run
+cp $FILES_LIST $FILES_TO_PROCESS
 
-    find $PATRIC_GENOMES -iname \*.index | sed "s/^\.\///" > found-indexes
-
-    FINDTEST=$(egrep "$FASTA"\.index ./found-indexes)
-
-    if [[ -z $FINDTEST ]]; then
-        echo $FASTA >> $FILES_TO_PROCESS
-    else
-        continue
-    fi
-
-done < $FILES_LIST
+#uncomment following loop if after first run
+#while read FASTA; do
+#
+#    find $PATRIC_GENOMES -iname \*.index | sed "s/^\.\///" > found-indexes
+#
+#    FINDTEST=$(egrep "$FASTA"\.index ./found-indexes)
+#
+#    if [[ -z $FINDTEST ]]; then
+#        echo $FASTA >> $FILES_TO_PROCESS
+#    else
+#        continue
+#    fi
+#
+#done < $FILES_LIST
 
 NUM_FILES=$(lc $FILES_TO_PROCESS)
 
