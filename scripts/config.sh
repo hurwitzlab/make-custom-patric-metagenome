@@ -48,11 +48,11 @@ export TAXA="/gsfs1/rsgrps/bhurwitz/scottdaniel/PATRIC_dbCreator/data/Patric_nod
 #patric genome index in case you want to go back to original scaffold from the read id
 export PATRIC_INDEX="/gsfs1/rsgrps/bhurwitz/hurwitzlab/data/reference/patric_metadata/PATRIC_final_genome_index.txt"
 #where patric annotation is
-export PATRIC_ANNOT="/gsfs1/rsgrps/bhurwitz/hurwitzlab/data/reference/patric_annotation/patric_annot/patric_cds"
+export PATRIC_ANNOT="/gsfs1/rsgrps/bhurwitz/hurwitzlab/data/reference/patric_annot/patric_cds"
 
 
 
- --------------------------------------------------
+# --------------------------------------------------
 function init_dir {
     for dir in $*; do
         if [ -d "$dir" ]; then
