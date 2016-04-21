@@ -1,9 +1,9 @@
 export CWD=$PWD
 export SCRIPT_DIR=$CWD
-##where programs are
-export BIN_DIR="/gsfs1/rsgrps/bhurwitz/hurwitzlab/bin"
+
 #root project dir
-export PRJ_DIR="/gsfs1/rsgrps/bhurwitz/scottdaniel/make-custom-patric-metagenome"
+export PRJ_DIR="/Users/Scott/make-custom-patric-metagenome"
+
 #
 ##input fasta
 #export FASTA_DIR="/gsfs1/rsgrps/bhurwitz/kyclark/mouse/data/screened"
@@ -42,13 +42,13 @@ export WORKER_DIR="$PRJ_DIR/scripts/workers"
 ##where bowtie2 database is for taxoner
 #export BOWTIEDB="/gsfs1/rsgrps/bhurwitz/hurwitzlab/data/reference/taxoner_db"
 #where patric genomes are
-export PATRIC_GENOMES="/gsfs1/rsgrps/bhurwitz/hurwitzlab/data/reference/patric_bacteria"
-#where taxid annotation is
-export TAXA="/gsfs1/rsgrps/bhurwitz/scottdaniel/PATRIC_dbCreator/data/Patric_nodes.dmp"
+export PATRIC_GENOMES="$PRJ_DIR/genomes"
 #patric genome index in case you want to go back to original scaffold from the read id
-export PATRIC_INDEX="/gsfs1/rsgrps/bhurwitz/hurwitzlab/data/reference/patric_metadata/PATRIC_final_genome_index.txt"
+export PATRIC_INDEX="$PRJ_DIR/PATRIC_final_genome_index.txt"
 #where patric annotation is
-export PATRIC_ANNOT="/gsfs1/rsgrps/bhurwitz/hurwitzlab/data/reference/patric_annot/patric_cds"
+export PATRIC_ANNOT="$PRJ_DIR/annotation"
+#place to put output
+export DATA_DIR="$PRJ_DIR/data"
 
 
 

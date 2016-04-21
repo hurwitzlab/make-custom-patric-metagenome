@@ -1,0 +1,10 @@
+Script started on Wed Apr 20 14:08:30 2016
+bash-3.2$ ls
+annotation-test.txt	contigs-test.fa		typescript
+bash-3.2$ sed -i [D[K[D[K[D[K-e 's/ .*$//g' -e 's/>accn|//g' contigs-test.fa > simple-contigs.fa[D[K[D[K[D[K-test.
+fa
+bash-3.2$ head -1 simples[D[K-contigs-test.fa 
+AVAI01000001
+bash-3.2$ script[D[K[D[K[D[K[D[K[D[K[D[Kexit
+
+Script done on Wed Apr 20 14:10:35 2016
