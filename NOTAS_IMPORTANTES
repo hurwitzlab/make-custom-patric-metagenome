@@ -15,3 +15,11 @@ To get *exactly* which strain each alignment goes to you have to go back to the 
 
 In a way, this doesn't matter, the contigs will be cat'd along with any spurious genomes, after alignment of each sample we can just filter out contigs with low coverage... we won't be losing any information
 *but this might be important later in case of annotation
+
+ok, this does matter... the contig.fa was ~17gb and bowtie2-build index wasn't able to create an index on TACC at 2 days of runtime (might have something to do with the really long fasta deflines but whatever)
+
+now the solution is to cut down the size by fetching the specific contigs per genome (in the case of PATRIC, a strain of a species) per read
+
+to make things as expedient as possible, i'm going to just modify the perl script that fetches sequences from fasta files... with the caveat being...
+
+I need to make sure (ask Ken) that the Bio::Fasta::DB is able to take partial matches, since the deflines of the genomes (e.g. 1043858.3.fna) are long and something like this >accn|ATN0003842 E. Coli ATCC 3982 1043858.3 etc. the search string that I'll have is the accession string "ATN0003842" 
