@@ -1,3 +1,5 @@
+#this seems to work just for cat'ing all the files
+xargs -a just_patric_ids -d '\n' cat > contigs.fa
 Since I used Taxoner to align to PATRIC things got a little confusing
 
 tax_ids_to... txt has mapping of the NCBI taxonomy id (which taxoner uses) mapped to PATRIC ids (which has several X.1, X.2, X.N strains sometimes for each tax_id)
