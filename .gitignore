@@ -1,3 +1,6 @@
 data/
 contigs*
 *.db
+found-indexes
+makedb-files
+makedb-files-to-process
