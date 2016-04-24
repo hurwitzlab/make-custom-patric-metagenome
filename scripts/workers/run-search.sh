@@ -12,15 +12,6 @@
 
 cd $PBS_O_WORKDIR
 
-CONFIG="$PRJ_DIR/scripts/config.sh"
-
-if [ -e $CONFIG ]; then
-    . "$CONFIG"
-else
-    echo MIssing config \"$CONFIG\"
-    exit 12385
-fi
-
 COMMON="$WORKER_DIR/common.sh"
 
 if [ -e $COMMON ]; then
@@ -32,46 +23,26 @@ fi
 
 TMP_FILES=$(mktemp)
 
-get_lines $DNADBLIST $TMP_FILES $PBS_ARRAY_INDEX $STEP_SIZE
+get_lines $SOURCE_MAP $TMP_FILES $PBS_ARRAY_INDEX $STEP_SIZE
 
 NUM_FILES=$(lc $TMP_FILES)
 
 echo Found \"$NUM_FILES\" files to process
 
-echo Running perl script
+echo Running python script
 
-let i=1
+export PBS_ARRAY_INDEX
 
-while read DB; do
+export OUT_DIR="$DATA_DIR/contig-out/$PBS_ARRAY_INDEX"
 
-    SEARCH_FILE=$(egrep ".+DNA_$NUM.+" $FILES_LIST)
-    
-    if [[ $i -eq 1 ]]; then
+NUM_GENOMES=$(cut -f2 -d' ' $TMP_FILES | sort | uniq -u | lc)
 
-        echo Working on $SEARCH_FILE
+if [ -d $OUT_DIR ]; then
+    rm -rf $OUT_DIR/*
+else
+    init_dir "$OUT_DIR"
+fi
 
-    fi
+export OUT_NAME="$NUM_GENOMES-strains.fa"
 
-    OUT_DIR=$HIGH_QUAL_DIR/$DB
-    
-    IN_DB=$SPLIT_FA_DIR/$DB
-
-    if [[ ! -d "$OUT_DIR" ]]; then
-        mkdir -p "$OUT_DIR"
-    fi
-
-    if [[ -z $(find $OUT_DIR -type f -iname \*.fa) ]]; then
-        echo Using the fasta database here: $IN_DB
-        echo Outputting to $OUT_DIR
-    else
-        echo Search already done on $IN_DB, continuing to the next...
-        continue
-    fi
-
-    perl $WORKER_DIR/fasta-search.pl $IN_DB $SEARCH_FILE $OUT_DIR
-
-    let i++
-
-done < $TMP_FILES
- 
-
+python $WORKER_DIR/get-contigs.py -m $TMP_FILES -o $OUT_DIR/$OUT_NAME 

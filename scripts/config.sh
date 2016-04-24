@@ -23,7 +23,7 @@ export PRJ_DIR="/gsfs1/rsgrps/bhurwitz/scottdaniel/make-custom-patric-metagenome
 #export TAXONER_OUT_DIR="$PRJ_DIR/taxoner-out"
 
 #place where Taxonomy.txts are (which have our reads mapped to uniue_ids
-export KRONA_OUT_DIR="$PRJ_DIR/krona-out"
+export KRONA_OUT_DIR="/gsfs1/rsgrps/bhurwitz/scottdaniel/fastq-taxoner-patric/krona-out"
 ##place to store taxon counts (step 03)
 ##export COUNT_OUT_DIR="$PRJ_DIR/count-out"
 #export COUNT_OUT_DIR="$PRJ_DIR/count-out"
@@ -49,7 +49,10 @@ export TAXA="/gsfs1/rsgrps/bhurwitz/scottdaniel/PATRIC_dbCreator/data/Patric_nod
 export PATRIC_INDEX="/gsfs1/rsgrps/bhurwitz/hurwitzlab/data/reference/patric_metadata/PATRIC_final_genome_index.txt"
 #where patric annotation is
 export PATRIC_ANNOT="/gsfs1/rsgrps/bhurwitz/hurwitzlab/data/reference/patric_annot/patric_cds"
-
+#data directory for output
+export DATA_DIR="$PRJ_DIR/data"
+#source file with patric accn's (first field) [space] and patric strain/genome number (second field)
+export SOURCE_MAP="$DATA_DIR/just-genome-and-accn.txt"
 
 
 # --------------------------------------------------
