@@ -44,6 +44,8 @@ for line in file_in:
     cols=line.split(' ')
     accn=cols[0]
     strain=cols[1]
-    strain_to_accn.update({strain:accn})
+    #this adds in the accn's as a list if there are more than one
+    strain_to_accn.setdefault(strain,[])
+    strain_to_accn[strain].append(accn)
 
 
