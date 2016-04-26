@@ -4,3 +4,5 @@ contigs*
 out/
 makedb-files
 makedb-files-to-process
+work-log*
+typescript
