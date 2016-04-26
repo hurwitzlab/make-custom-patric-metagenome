@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 #
-# This script is intended to make a BioSeqIO index from fasta files
+# This script is intended to use taxoner to map fastas to a metagenome 
 #
-unset module
+
 set -u
 source ./config.sh
 export CWD="$PWD"
@@ -31,6 +31,10 @@ fi
 
 export FILES_TO_PROCESS="$PRJ_DIR/makedb-files-to-process"
 
+#remove following line after first run
+#cp $FILES_LIST $FILES_TO_PROCESS
+
+#uncomment following loop if after first run
 while read FASTA; do
 
     find $PATRIC_GENOMES -iname \*.index | sed "s/^\.\///" > found-indexes
@@ -44,12 +48,11 @@ while read FASTA; do
     fi
 
 done < $FILES_LIST
-
 NUM_FILES=$(lc $FILES_TO_PROCESS)
 
 echo \"Found $NUM_FILES to process\"
 
-JOB=$(qsub -J 1-$NUM_FILES:$STEP_SIZE -V -N makedbfasta -j oe -o "$STDOUT_DIR" $WORKER_DIR/make-fastaDB.sh)
+JOB=$(qsub -J 1-$NUM_FILES:$STEP_SIZE -v PRJ_DIR,STEP_SIZE,WORKER_DIR,BIN_DIR,FILES_TO_PROCESS,SPLIT_FA_DIR,TAXONER_OUT_DIR -N makedbfasta -j oe -o "$STDOUT_DIR" $WORKER_DIR/make-fastaDB.sh)
 
 if [ $? -eq 0 ]; then
   echo Submitted job \"$JOB\" for you in steps of \"$STEP_SIZE.\" Remember: Try to relax.

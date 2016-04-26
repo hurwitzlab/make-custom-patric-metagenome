@@ -1,7 +1,9 @@
 data/
 contigs*
 *.db
-found-indexes
+out/
 makedb-files
 makedb-files-to-process
 PATRIC_final_genome_index.txt
+work-log*
+typescript
