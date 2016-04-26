@@ -1,0 +1,106 @@
+Script started on Sun 24 Apr 2016 11:07:17 AM CDT
+c558-901.stampede(1)$ ls
+[0m[32mall-dna.txt[0m             [00mDNA_2_Taxonomy.txt-out[0m  [00mDNA_4_Taxonomy.txt-out[0m
+[00mDNA_1_Taxonomy.txt-out[0m  [00mDNA_3_Taxonomy.txt-out[0m  [32msorted-all-dna.txt[0m
+[mc558-901.stampede(2)$ ls
+[0m[32mall-dna.txt[0m             [00mDNA_2_Taxonomy.txt-out[0m  [00mDNA_4_Taxonomy.txt-out[0m
+[00mDNA_1_Taxonomy.txt-out[0m  [00mDNA_3_Taxonomy.txt-out[0m  [32msorted-all-dna.txt[0m
+[mc558-901.stampede(3)$ up
+bash: up: command not found
+c558-901.stampede(4)$ source ~/.profile
+
+Any sufficiently advanced technology is indistinguishable from a rigged demo.
+        ― Andy Finkel, computer guy
+
+c558-901.stampede(5)$ up
+/work/03859/sdaniel/make-custom-patric-metagenome
+c558-901.stampede(6)$ ls
+[0m[00mcool-python-stuff-i-learned-today[0m  [00mNOTAS_IMPORTANTES[0m      [36mscripts[0m
+[36mdata[0m                               [32mprototype_tax_ids.txt[0m  [32mtax_ids_to_lineage_ids.txt[0m
+[00mjust_patric_ids[0m                    [32mREADME.md[0m              [00mtypescript[0m
+[mc558-901.stampede(7)$ cd data
+c558-901.stampede(8)$ ls
+[0m[32mall-dna.txt[0m             [00mDNA_2_Taxonomy.txt-out[0m  [00mDNA_4_Taxonomy.txt-out[0m
+[00mDNA_1_Taxonomy.txt-out[0m  [00mDNA_3_Taxonomy.txt-out[0m  [32msorted-all-dna.txt[0m
+[mc558-901.stampede(9)$ ls[D[Dcd data[D[D[D[D[D[D[Dls[K[D[Dup[D[Dsource ~/.profile[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dup[K[D[Dls data[D[D[D[D[D[K[D[Dup[D[Drm get_files.6929222.out [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[K[D[D./pull-data-from-hpc.slurm [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[K[D[Dvim pull-data-from-hpc.slurm [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[K[D[Dvim get_files.6929222.out [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls out[K[D[D[D[D[K[D[Dshowq -u[D[D[D[D[D[D[Dbatch pull-data-from-hpc.slurm [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Chowq -u[K[D[D[D[D[D[D[D[Dls[K out[D[D[D[D[D[Dvim get_files.6929222.out [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[K[D[Dvim pull-data-from-hpc.slurm [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[K[D[D./pull-data-from-hpc.slurm [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[K[D[Drm get_files.6929222.out [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cup[K[D[Dls data[D[D[D[D[D[K[D[Dup[D[Dsource ~/.profile[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[Dup[K[D[Dls[D[Dcd data[D[D[D[D[D[D[Dls[K[D[D[Kfind ./ -type f -print0 | xargs -0 -I file cat file > all-dna.
+txt
+cat: ./all-dna.txt: input file is output file
+c558-901.stampede(10)$ find ./ -type f -print0 | xargs -0 -I file cat file > all-dna
+.txt[D[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[D -print0 | xargs -0 -I file cat file > all-dna.
+[1Ptxt[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C-print0 | xargs -0 -I file cat file > all-dna.t
+[1Pxt[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[D -print0 | xargs -0 -I file cat file > all-dna.tx
+[1Pt[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[D -print0 | xargs -0 -I file cat file > all-dna.txt
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[D[1P
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[D[1P[1@i[1@na -print0 | xargs -0 -I file cat file > all-dna.tx
+t[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cm -print0 | xargs -0 -I file cat file > all-dna.t
+xt[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ce -print0 | xargs -0 -I file cat file > all-dna.
+txt[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -print0 | xargs -0 -I file cat file > all-dna
+.txt[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C\ -print0 | xargs -0 -I file cat file > all-dn
+a.txt[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C* -print0 | xargs -0 -I file cat file > all-d
+na.txt[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CT -print0 | xargs -0 -I file cat file > all-
+dna.txt[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ca -print0 | xargs -0 -I file cat file > all
+-dna.txt[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cx -print0 | xargs -0 -I file cat file > al
+l-dna.txt[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Co -print0 | xargs -0 -I file cat file > a
+[Cl-dna.txt[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cn -print0 | xargs -0 -I file cat file > 
+all-dna.txt[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Co -print0 | xargs -0 -I file cat file >
+ all-dna.txt[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cm -print0 | xargs -0 -I file cat file 
+> all-dna.txt[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cy -print0 | xargs -0 -I file cat file
+[1@ [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C. -print0 | xargs -0 -I file cat fil
+[1@e[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ct -print0 | xargs -0 -I file cat fi
+[1@l[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cx -print0 | xargs -0 -I file cat f
+[1@i[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ct -print0 | xargs -0 -I file cat 
+[1@f[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C- -print0 | xargs -0 -I file cat
+[1@ [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Co -print0 | xargs -0 -I file ca
+[1@t[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cu -print0 | xargs -0 -I file c
+[1@a[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ct -print0 | xargs -0 -I file 
+[1@c[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+c558-901.stampede(11)$ l
+total 3.6G
+drwxrwxr-x 2 sdaniel G-814141 4.0K 2016-04-24-10:58:50 [0m[36m.[0m
+drwxr-xr-x 5 sdaniel G-814141 4.0K 2016-04-24-11:07:17 [36m..[0m
+-rw-rw-r-- 1 sdaniel G-814141 1.2G 2016-04-24-11:10:16 [32mall-dna.txt[0m
+-rw-rw-r-- 1 sdaniel G-814141 258M 2016-04-22-23:56:58 [00mDNA_1_Taxonomy.txt-out[0m
+-rw-rw-r-- 1 sdaniel G-814141 232M 2016-04-22-23:57:02 [00mDNA_2_Taxonomy.txt-out[0m
+-rw-rw-r-- 1 sdaniel G-814141 306M 2016-04-22-23:58:23 [00mDNA_3_Taxonomy.txt-out[0m
+-rw-rw-r-- 1 sdaniel G-814141 413M 2016-04-23-00:00:06 [00mDNA_4_Taxonomy.txt-out[0m
+-rw-rw-r-- 1 sdaniel G-814141 1.2G 2016-04-24-11:03:52 [32msorted-all-dna.txt[0m
+[mc558-901.stampede(12)$ time sort -k3,3,[D[K all-dna.txt > sorted-all-dna.txt 
+
+real	5m2.781s
+user	4m58.986s
+sys	0m3.247s
+c558-901.stampede(13)$ time sort -k3,3 all-dna.txt > sorted-all-dna.txt [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[D[C[1@ [D[1@-[1@u
+
+real	2m31.199s
+user	2m29.105s
+sys	0m1.709s
+c558-901.stampede(14)$ l
+total 2.4G
+drwxrwxr-x 2 sdaniel G-814141 4.0K 2016-04-24-10:58:50 [0m[36m.[0m
+drwxr-xr-x 5 sdaniel G-814141 4.0K 2016-04-24-11:07:17 [36m..[0m
+-rw-rw-r-- 1 sdaniel G-814141 1.2G 2016-04-24-11:10:16 [32mall-dna.txt[0m
+-rw-rw-r-- 1 sdaniel G-814141 258M 2016-04-22-23:56:58 [00mDNA_1_Taxonomy.txt-out[0m
+-rw-rw-r-- 1 sdaniel G-814141 232M 2016-04-22-23:57:02 [00mDNA_2_Taxonomy.txt-out[0m
+-rw-rw-r-- 1 sdaniel G-814141 306M 2016-04-22-23:58:23 [00mDNA_3_Taxonomy.txt-out[0m
+-rw-rw-r-- 1 sdaniel G-814141 413M 2016-04-23-00:00:06 [00mDNA_4_Taxonomy.txt-out[0m
+-rw-rw-r-- 1 sdaniel G-814141 9.5M 2016-04-24-11:19:43 [32msorted-all-dna.txt[0m
+[mc558-901.stampede(15)$ head sorted-all-dna.txt 
+HWI-ST885:65:C07WUACXX:2:2307:9052:101228-1	441769	1000263	134
+HWI-ST885:65:C07WUACXX:2:2304:8208:159635-2	441769	1000264	171
+HWI-ST885:65:C07WUACXX:2:1304:14331:129810-1	441769	1000265	167
+HWI-ST885:65:C07WUACXX:2:2205:17040:174448	441769	1000268	167
+HWI-ST885:65:C07WUACXX:7:1107:1272:62612-1	441769	1000269	160
+HWI-ST885:65:C07WUACXX:7:1104:4436:51924-1	441769	1000271	145
+HWI-ST885:65:C07WUACXX:7:2103:11616:34175-2	441769	1000273	163
+HWI-ST885:65:C07WUACXX:7:1302:10516:111234-2	441769	1000274	152
+HWI-ST885:65:C07WUACXX:2:1207:15809:190644-1	441769	1000275	141
+HWI-ST885:65:C07WUACXX:7:1306:15551:41565-2	441769	1000276	191
+c558-901.stampede(16)$ wc -l sorted-all-dna.txt 
+156978 sorted-all-dna.txt
+c558-901.stampede(17)$ wc -l all-dna.txt 
+20021723 all-dna.txt
+c558-901.stampede(18)$ k[D[Kexit
+exit
+
+Script done on Sun 24 Apr 2016 11:24:40 AM CDT
