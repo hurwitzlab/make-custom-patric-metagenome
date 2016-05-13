@@ -1,3 +1,15 @@
+
+# --------------------------------------------------
+function init_dir {
+    for dir in $*; do
+        if [ -d "$dir" ]; then
+            rm -rf $dir/*
+        else
+            mkdir -p "$dir"
+        fi
+    done
+}
+
 # --------------------------------------------------
 function lc() {
     wc -l $1 | cut -d ' ' -f 1
@@ -26,4 +38,16 @@ function get_lines() {
   fi
 
   awk "NR==$START,NR==$(($START + $STEP - 1))" $FILE > $OUT_FILE
+
+# --------------------------------------------------
+function init_dir {
+    for dir in $*; do
+        if [ -d "$dir" ]; then
+            rm -rf $dir/*
+        else
+            mkdir -p "$dir"
+        fi
+    done
+}
+
 }

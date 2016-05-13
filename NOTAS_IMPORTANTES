@@ -23,3 +23,5 @@ now the solution is to cut down the size by fetching the specific contigs per ge
 to make things as expedient as possible, i'm going to just modify the perl script that fetches sequences from fasta files... with the caveat being...
 
 I need to make sure (ask Ken) that the Bio::Fasta::DB is able to take partial matches, since the deflines of the genomes (e.g. 1043858.3.fna) are long and something like this >accn|ATN0003842 E. Coli ATCC 3982 1043858.3 etc. the search string that I'll have is the accession string "ATN0003842" 
+
+nvm, i used python and it worked
