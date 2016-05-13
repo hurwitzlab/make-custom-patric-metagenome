@@ -37,7 +37,7 @@ if __name__ == "__main__":
         '/',os.environ.get('OUT_NAME1')]))
     parser.add_argument("-o2", "--out2", action="store", \
         help="Annotation out", default=''.join([os.environ.get('OUT_DIR'),\
-        '/',os.environ.get('OUT_NAME2')))
+        '/',os.environ.get('OUT_NAME2')]))
 
     args = vars(parser.parse_args())
 
@@ -86,37 +86,42 @@ for strain in strain_to_accn:
 
     annot_path = ''.join([os.environ.get('PATRIC_ANNOT'),'/',\
             strain,'.PATRIC.cds.tab'])
+    print annot_path
 
     if not os.path.isfile(annot_path):
         print '{}.PATRIC.cds.tab does not exist'.format(strain)
         continue
     
     annot_file = open(annot_path,"r")
+    print annot_file
 
     #write a header
+    print os.stat(file_out2.name).st_size 
     if (os.stat(file_out2.name).st_size == 0):
-        file_out2.write('prot\t','contig\t','start\t','stop\t','direction\t','figfam\t','function\t','t_phylum\t','t_class\t','t_order\t','t_family\t','t_genus\t','t_species\n')
+        file_out2.write('prot\t'+'contig\t'+'start\t'+'stop\t'+'direction\t'+'figfam\t'+'function\t'+'t_phylum\t'+'t_class\t'+'t_order\t'+'t_family\t'+'t_genus\t'+'t_species\n')
 
     for line in annot_file:
         line=line.rstrip('\n')
-        cols=line.split(' ')
+        cols=line.split('\t')
         this_accn = cols[2]
+        print ''.join(['accn|',this_accn])        
+        print strain_to_accn[strain]
         
-        if not this_accn in strain_to_accn[strain]:
+        if not ''.join(['accn|',this_accn]) in strain_to_accn[strain]:
             continue
 
         this_gid = cols[0]
         this_species = cols[1]
-        this_prot = 'prot'.join(str(random.randint(0,1000000000)))
+        this_prot = ''.join(['prot',str(random.randint(0,1000000000))])
         this_start = cols[9]
         this_end = cols[10]
         if cols[11] == '+':
             this_strand = 'f'
-        else
+        else:
             this_strand = 'r'
         this_figfam = cols[15]
         this_function = cols[14]
-        file_out2.write(this_prot,'\t',this_accn,'\t',this_start,'\t',this_end,'\t',this_strand,'\t',this_figfam,'\t',this_function,'\t','\t\t\t\t\t',this_species,'\n')
+        file_out2.write(this_prot+'\t'+this_accn+'\t'+this_start+'\t'+this_end+'\t'+this_strand+'\t'+this_figfam+'\t'+this_function+'\t'+'\t\t\t\t\t'+this_species+'\n')
 
 file_in.close()
 file_out1.close()
