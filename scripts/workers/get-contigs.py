@@ -10,6 +10,9 @@ import pprint
 import subprocess
 from plumbum import local
 from Bio import SeqIO
+import random
+
+random.seed()
 
 #function to import variable from config.sh or other sourcefile
 def import_config(sourcefile='./config.sh'):
@@ -69,9 +72,9 @@ for strain in strain_to_accn:
             #Note the SeqIO.write adds in /n to make the fasta record
             #more readable, if we want raw records we have to use
             #record_dict.get_raw(accn) and can't use SeqIO.write
-            number_written += SeqIO.write(record_dict[accn],file_out,'fasta')
+            number_written += SeqIO.write(record_dict[accn],file_out1,'fasta')
     else:
-        SeqIO.write(record_dict[accn],file_out,'fasta')
+        SeqIO.write(record_dict[accn],file_out1,'fasta')
         print 'Wrote 1 record to {}'.format(strain)
     
     print 'Number of records written to {} = {}'.format(strain,\
@@ -90,12 +93,30 @@ for strain in strain_to_accn:
     
     annot_file = open(annot_path,"r")
 
+    #write a header
+    if (os.stat(file_out2.name).st_size == 0):
+        file_out2.write('prot\t','contig\t','start\t','stop\t','direction\t','figfam\t','function\t','t_phylum\t','t_class\t','t_order\t','t_family\t','t_genus\t','t_species\n')
+
     for line in annot_file:
         line=line.rstrip('\n')
         cols=line.split(' ')
+        this_accn = cols[2]
+        
+        if not this_accn in strain_to_accn[strain]:
+            continue
 
-
-
+        this_gid = cols[0]
+        this_species = cols[1]
+        this_prot = 'prot'.join(str(random.randint(0,1000000000)))
+        this_start = cols[9]
+        this_end = cols[10]
+        if cols[11] == '+':
+            this_strand = 'f'
+        else
+            this_strand = 'r'
+        this_figfam = cols[15]
+        this_function = cols[14]
+        file_out2.write(this_prot,'\t',this_accn,'\t',this_start,'\t',this_end,'\t',this_strand,'\t',this_figfam,'\t',this_function,'\t','\t\t\t\t\t',this_species,'\n')
 
 file_in.close()
 file_out1.close()
