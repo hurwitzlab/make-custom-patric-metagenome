@@ -86,14 +86,14 @@ for strain in strain_to_accn:
 
     annot_path = ''.join([os.environ.get('PATRIC_ANNOT'),'/',\
             strain,'.PATRIC.cds.tab'])
-    print annot_path
+#    print annot_path
 
     if not os.path.isfile(annot_path):
         print '{}.PATRIC.cds.tab does not exist'.format(strain)
         continue
     
     annot_file = open(annot_path,"r")
-    print annot_file
+    print "Opened annotation file {}".format(annot_path)
 
     #write a header
     print os.stat(file_out2.name).st_size 
@@ -104,8 +104,8 @@ for strain in strain_to_accn:
         line=line.rstrip('\n')
         cols=line.split('\t')
         this_accn = cols[2]
-        print ''.join(['accn|',this_accn])        
-        print strain_to_accn[strain]
+#        print ''.join(['accn|',this_accn])        
+#        print strain_to_accn[strain]
         
         if not ''.join(['accn|',this_accn]) in strain_to_accn[strain]:
             continue
