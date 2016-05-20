@@ -3,7 +3,7 @@ export SCRIPT_DIR=$CWD
 ##where programs are
 export BIN_DIR="/rsgrps/bhurwitz/hurwitzlab/bin"
 #root project dir
-export PRJ_DIR="/rsgrps/bhurwitz/scottdaniel/make-custom-patric-metagenome"
+export PRJ_DIR="/rsgrps/bhurwitz/scottdaniel/make-small-patric"
 #
 ##input fasta
 #export FASTA_DIR="/rsgrps/bhurwitz/kyclark/mouse/data/screened"

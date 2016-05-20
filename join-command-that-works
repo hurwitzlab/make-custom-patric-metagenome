@@ -1,0 +1,1 @@
+join -t'     ' -1 2 -2 2 --check-order <(sort -k2,2 just-strain-and-accn-right-list.txt) <(sort -k2,2 twenty-genomes) > temp
