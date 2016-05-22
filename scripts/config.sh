@@ -51,8 +51,10 @@ export PATRIC_INDEX="/rsgrps/bhurwitz/hurwitzlab/data/reference/patric_metadata/
 export PATRIC_ANNOT="/rsgrps/bhurwitz/hurwitzlab/data/reference/patric_annot/patric_cds"
 #data directory for output
 export DATA_DIR="$PRJ_DIR/data"
-#source file with patric accn's (first field) [space] and patric strain/genome number (second field)
-export SOURCE_MAP="$DATA_DIR/just-strain-and-accn-right-list.txt"
+#source file with patric strain [TAB] patric accn's [TAB] patric species
+export SOURCE_MAP="$PRJ_DIR/strain-accn-name.txt"
+#patric lineage so we know kingdom phylum class order family genus species
+export PATRIC_LIN="/rsgrps/bhurwitz/hurwitzlab/data/reference/patric_metadata/genome_lineage"
 
 
 # --------------------------------------------------

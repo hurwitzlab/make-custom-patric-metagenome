@@ -7,9 +7,8 @@ unset module
 set -u
 source ./config.sh
 export CWD="$PWD"
-export STEP_SIZE=2000
-#lines of just-genome-and-accn.txt = 156975
-#divide by 2000 and you get ~78 subjobs
+export STEP_SIZE=100
+#lines of strain-acn-name.txt = 1111
 
 echo Setting up log files...
 PROG=`basename $0 ".sh"`

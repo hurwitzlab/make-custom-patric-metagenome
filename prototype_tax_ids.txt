@@ -1,5 +1,0 @@
-genome_id	genome_name	taxon_id
-235279.5	Helicobacter hepaticus ATCC 51449	235279
-1382366.3	Lactobacillus plantarum 4_3	1382366
-1358413.3	Lactobacillus plantarum AY01	1358413
-435591.13	Parabacteroides distasonis ATCC 8503	435591
