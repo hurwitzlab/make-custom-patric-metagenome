@@ -10,7 +10,7 @@
 #PBS -M scottdaniel@email.arizona.edu
 #PBS -m bea
 
-cd $PBS_O_WORKDIR
+#cd $PBS_O_WORKDIR
 
 COMMON="$WORKER_DIR/common.sh"
 
@@ -20,22 +20,22 @@ else
   echo Missing common \"$COMMON\"
   exit 1
 fi
-
-TMP_FILES=$(mktemp)
-
-get_lines $SOURCE_MAP $TMP_FILES $PBS_ARRAY_INDEX $STEP_SIZE
-
-NUM_FILES=$(lc $TMP_FILES)
-
-echo Found \"$NUM_FILES\" files to process
-
+#
+#TMP_FILES=$(mktemp)
+#
+#get_lines $SOURCE_MAP $TMP_FILES $PBS_ARRAY_INDEX $STEP_SIZE
+#
+#NUM_FILES=$(lc $TMP_FILES)
+#
+#echo Found \"$NUM_FILES\" files to process
+#
 echo Running python script
 
-export PBS_ARRAY_INDEX
+export PBS_ARRAY_INDEX="1"
 
 export OUT_DIR="$DATA_DIR/contig-out/$PBS_ARRAY_INDEX"
 
-NUM_GENOMES=$(cut -f2 -d' ' $TMP_FILES | sort | uniq -u | lc)
+NUM_GENOMES=$(cut -f2 -d' ' $SOURCE_MAP | sort | uniq -u | lc)
 
 if [ -d $OUT_DIR ]; then
     rm -rf $OUT_DIR/*
@@ -43,6 +43,8 @@ else
     init_dir "$OUT_DIR"
 fi
 
-export OUT_NAME="$NUM_GENOMES-strains.fa"
+export OUT_NAME1="$NUM_GENOMES-strains.fa"
+export OUT_NAME2="$NUM_GENOMES-annotation.tab"
 
-python $WORKER_DIR/get-contigs.py -m $TMP_FILES -o $OUT_DIR/$OUT_NAME 
+#-m $TMP_FILES -o $OUT_DIR/$OUT_NAME 
+python $WORKER_DIR/get-contigs.py -h

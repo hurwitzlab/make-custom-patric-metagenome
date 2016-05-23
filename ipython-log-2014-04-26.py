@@ -14,7 +14,7 @@ for line in file_in:
         accn=cols[0]
         strain=cols[1]
         strain_to_accn.update({strain:accn})
-    
+
 len(strain)
 #[Out]# 6
 len(strain_to_accn)
@@ -1040,8 +1040,8 @@ for line in file_in:
         accn=cols[0]
         strain=cols[1]
         strain_to_accn.setdefault(strain,[])
-    strain_to_accn[strain].append(accn)
-    
+        strain_to_accn[strain].append(accn)
+
 for line in file_in:
     line=line.rstrip('\n')
     cols=line.split(' ')
@@ -1049,7 +1049,7 @@ for line in file_in:
     strain=cols[1]
     strain_to_accn.setdefault(strain,[])
     strain_to_accn[strain].append(accn)
-    
+
 len(strain_to_accn
 )
 #[Out]# 15262
@@ -1066,7 +1066,7 @@ for line in file_in:
     strain=cols[1]
     strain_to_accn.setdefault(strain,[])
     strain_to_accn[strain].append(accn)
-    
+
 len(strain_to_accn)
 #[Out]# 0
 strain
@@ -1173,7 +1173,7 @@ for line in file_in:
     strain=cols[1]
     strain_to_accn.setdefault(strain,[])
     strain_to_accn[strain].append(accn)
-    
+
 len(strain_to_accn)
 #[Out]# 15262
 strain_to_accn.get('441769.6')

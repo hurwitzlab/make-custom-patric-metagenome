@@ -13,7 +13,7 @@ export PATRIC_ANNOT="$PRJ_DIR/annotation"
 #place to put output
 export DATA_DIR="$PRJ_DIR/data"
 #source file with patric accn's (first field) [space] and patric strain/genome number (second field)
-export SOURCE_MAP="$DATA_DIR/just-genome-and-accn.txt"
+export SOURCE_MAP="$DATA_DIR/just-strain-and-accn-right-list.txt"
 
 
 # --------------------------------------------------
