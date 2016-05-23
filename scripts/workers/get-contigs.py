@@ -38,6 +38,9 @@ if __name__ == "__main__":
     parser.add_argument("-o2", "--out2", action="store", \
         help="Annotation out", default=''.join([os.environ.get('OUT_DIR'),\
         '/',os.environ.get('OUT_NAME2')]))
+    parser.add_argument("-t", "--taxfull", action="store_true", \
+        help="Option to add full taxonomy, default is just to add species \
+        annotation")
 
     args = vars(parser.parse_args())
 
@@ -45,16 +48,36 @@ file_in = open(args["map"],"r")
 file_out1 = open(args["out1"],"w")
 file_out2 = open(args["out2"],"w")
 
+#dictionary for the strains and individual accessions (contigs)
 strain_to_accn={}
 
 for line in file_in:
     line=line.rstrip('\n')
-    cols=line.split(' ')
-    accn=cols[0]
-    strain=cols[1]
+    cols=line.split('\t')
+    accn=cols[1]
+    strain=cols[0]
     #this adds in the accn's as a list if there are more than one
     strain_to_accn.setdefault(strain,[])
     strain_to_accn[strain].append(accn)
+
+#read in genome_lineage file for annotation
+#dictionaries for this
+if args["taxfull"]:
+    strain_to_phylum={}
+    strain_to_class={}
+    strain_to_order={}
+    strain_to_family={}
+    strain_to_genus={}
+
+    for line in open(os.environ.get('PATRIC_LIN'),"r"):
+        line=line.rstrip('\n')
+        cols=line.split('\t')
+        strain=cols[0]
+        strain_to_phylum[strain]=cols[5]
+        strain_to_class[strain]=cols[6]
+        strain_to_order[strain]=cols[7]
+        strain_to_family[strain]=cols[8]
+        strain_to_genus[strain]=cols[9]
 
 for strain in strain_to_accn:
     print 'Getting genome accns for {}'.format(strain)
@@ -86,26 +109,29 @@ for strain in strain_to_accn:
 
     annot_path = ''.join([os.environ.get('PATRIC_ANNOT'),'/',\
             strain,'.PATRIC.cds.tab'])
-    print annot_path
+#    print annot_path
 
     if not os.path.isfile(annot_path):
         print '{}.PATRIC.cds.tab does not exist'.format(strain)
         continue
     
     annot_file = open(annot_path,"r")
-    print annot_file
+    print "Opened annotation file {}".format(annot_path)
 
     #write a header
-    print os.stat(file_out2.name).st_size 
+#    print os.stat(file_out2.name).st_size 
     if (os.stat(file_out2.name).st_size == 0):
         file_out2.write('prot\t'+'contig\t'+'start\t'+'stop\t'+'direction\t'+'figfam\t'+'function\t'+'t_phylum\t'+'t_class\t'+'t_order\t'+'t_family\t'+'t_genus\t'+'t_species\n')
 
+
+
+#write some annotation
     for line in annot_file:
         line=line.rstrip('\n')
         cols=line.split('\t')
         this_accn = cols[2]
-        print ''.join(['accn|',this_accn])        
-        print strain_to_accn[strain]
+#        print ''.join(['accn|',this_accn])        
+#        print strain_to_accn[strain]
         
         if not ''.join(['accn|',this_accn]) in strain_to_accn[strain]:
             continue
@@ -121,7 +147,21 @@ for strain in strain_to_accn:
             this_strand = 'r'
         this_figfam = cols[15]
         this_function = cols[14]
-        file_out2.write(this_prot+'\t'+this_accn+'\t'+this_start+'\t'+this_end+'\t'+this_strand+'\t'+this_figfam+'\t'+this_function+'\t'+'\t\t\t\t\t'+this_species+'\n')
+
+        if args["taxfull"]:
+            this_phylum = strain_to_phylum[strain]
+            this_class = strain_to_class[strain]
+            this_order = strain_to_order[strain]
+            this_family = strain_to_family[strain]
+            this_genus = strain_to_genus[strain]
+        else:
+            this_phylum = ""
+            this_class = ""
+            this_order = ""
+            this_family = ""
+            this_genus = ""
+
+        file_out2.write(this_prot+'\t'+this_accn+'\t'+this_start+'\t'+this_end+'\t'+this_strand+'\t'+this_figfam+'\t'+this_function+'\t'+this_phylum+'\t'+this_class+'\t'+this_order+'\t'+this_family+'\t'+this_genus+'\t'+this_species+'\n')
 
 file_in.close()
 file_out1.close()
