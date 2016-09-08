@@ -49,11 +49,16 @@ export TAXA="/rsgrps/bhurwitz/scottdaniel/PATRIC_dbCreator/data/Patric_nodes.dmp
 export PATRIC_INDEX="/rsgrps/bhurwitz/hurwitzlab/data/reference/patric_metadata/PATRIC_final_genome_index.txt"
 #where patric annotation is
 export PATRIC_ANNOT="/rsgrps/bhurwitz/hurwitzlab/data/reference/patric_annot/patric_cds"
+#where patric gff's are
+export PATRIC_GFFS="/rsgrps/bhurwitz/hurwitzlab/data/reference/patric_annot/gff"
 #data directory for output
 export DATA_DIR="$PRJ_DIR/data"
 #source file with patric accn's (first field) [space] and patric strain/genome number (second field)
 export SOURCE_MAP="$DATA_DIR/just-strain-and-accn-right-list.txt"
-
+#just the unique strains/genomes
+export STRAINS="$DATA_DIR/just-strain-list.txt"
+#the destination directory we want to copy to
+export GENOME_OUT_DIR="/rsgrps/bhurwitz/scottdaniel/tophat-bacteria/genomes/all"
 
 # --------------------------------------------------
 function init_dir {
