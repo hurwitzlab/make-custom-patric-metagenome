@@ -27,9 +27,9 @@ fi
 
 export NUM_COPIES=$(lc $STRAINS)
 
-echo \"Processing $NUM_SEARCHES contigs\"
+echo \"Processing $NUM_COPIES contigs\"
 
-JOB=$(qsub -J 1-$NUM_SEARCHES:$STEP_SIZE -V -N fetch_dog -j oe -o "$STDOUT_DIR" $WORKER_DIR/run-copy.sh)
+JOB=$(qsub -J 1-$NUM_COPIES:$STEP_SIZE -V -N fetch_dog -j oe -o "$STDOUT_DIR" $WORKER_DIR/run-copy.sh)
 
 if [ $? -eq 0 ]; then
   echo Submitted job \"$JOB\" for you. La la la. La. la.
