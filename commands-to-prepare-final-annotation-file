@@ -1,0 +1,18 @@
+head patric-annotation-for-contigs.tab
+head -1 patric-annotation-for-contigs.tab > header.temp
+cat header.temp
+egrep '^prot.+' patric-annotation-for-contigs.tab | wc -l
+wc -l patric-annotation-for-contigs.tab
+egrep '^prot ' patric-annotation-for-contigs.tab | wc -l
+egrep '^prot\s.+' patric-annotation-for-contigs.tab | wc -l
+egrep '^prot\s.+' patric-annotation-for-contigs.tab | head
+egrep -v '^prot\s.+' patric-annotation-for-contigs.tab | wc -l
+egrep -v '^prot\s.+' patric-annotation-for-contigs.tab > temp.tab
+l
+cat header.temp temp.tab > temp2.tab
+head temp2.tab
+mv temp2 patric-annotation-for-contigs.tab
+mv temp2.tab patric-annotation-for-contigs.tab
+l
+rm header.temp
+rm temp.tab
