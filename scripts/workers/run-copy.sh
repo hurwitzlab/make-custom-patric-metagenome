@@ -36,6 +36,7 @@ fi
 
 for FILE in $(cat $TMP_FILE); do
     set -x
-    cp $PATRIC_GENOMES/"$FILE".fna $GENOME_OUT_DIR
-    cp $PATRIC_GFFS/"$FILE".PATRIC.gff $GENOME_OUT_DIR
+    #already got the genomes
+    #cp $PATRIC_GENOMES/"$FILE".fna $GENOME_OUT_DIR
+    cp $REFSEQ_GFFS/"$FILE".RefSeq.gff $GENOME_OUT_DIR
 done

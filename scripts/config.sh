@@ -51,6 +51,7 @@ export PATRIC_INDEX="/rsgrps/bhurwitz/hurwitzlab/data/reference/patric_metadata/
 export PATRIC_ANNOT="/rsgrps/bhurwitz/hurwitzlab/data/reference/patric_annot/patric_cds"
 #where patric gff's are
 export PATRIC_GFFS="/rsgrps/bhurwitz/hurwitzlab/data/reference/patric_annot/gff"
+export REFSEQ_GFFS=$PATRIC_GFFS
 #data directory for output
 export DATA_DIR="$PRJ_DIR/data"
 #source file with patric accn's (first field) [space] and patric strain/genome number (second field)
